@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clock World</title>
+    <link rel="stylesheet" href="workout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+</head>
+
+<body>
+        <div class="clock_workout" data-workout>
+                <article class="timer__clock">
+                    <section class="timer">
+                        <input type="number" id="series" value="00" class="timer__input" data-series-input>
+                        <label class="workout__label">Series</label>
+                    </section>
+                    <section class="timer">
+                        <input type="number" value="00" class="timer__input" data-workout-input>
+                        <label class="workout__label">Workouts per Series</label>
+                    </section>
+                    <section class="timer">
+                        <input type="number" value="00" class="timer__input" data-seconds-input>
+                        <label class="workout__label">Seconds per Workouts</label>
+                    </section>
+                </article>
+                <article class="rest">
+                    <section class="timer">
+                            <input type="number" value="00" class="rest__input" data-restSeries-input>
+                            <label  class="workout__label">Rest between series</label>
+                        </section>
+
+                        <section class="timer">
+                                <input type="number"  value="00"class="rest__input" data-restWorkout-input>
+                                <label  class="workout__label">Rest between workout</label>
+                            </section>
+                        </article>
+
+                <button class="button-st" data-start>
+                        START
+                    </button>
+                    <button class="button-st" data-stop>
+                        STOP
+                    </button>
+            </div>
+        <script src="workout.js"></script>
+        <script>
+            
+        const workout = new Workout();
+        workout.initializeWorkout();
+        </script>
+</body>
+
+</html>

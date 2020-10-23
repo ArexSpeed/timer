@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clock World</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="menu">
+            <div class="menu-toggle">X</div>
+            <nav class="nav">
+
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">
+                            <i class="fas fa-clock nav-icon"></i>
+                            <span class="nav-name">Clock</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="timer.html" class="nav-link">
+                            <i class="fas fa-clock nav-icon"></i>
+                            <span class="nav-name">Timer</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="stoper.html" class="nav-link">
+                            <i class="fas fa-clock nav-icon"></i>
+                            <span class="nav-name">Stoper</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-clock nav-icon"></i>
+                            <span class="nav-name">Countdown</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+
+        <div class="main-clock">
+            <div class="box-city">
+                <a href="#prev" class="prev" data-btn-prev-city>&lt;</a>
+                <div class="city-name" data-city-name></div>
+                <a href="#next" class="next" data-btn-next-city>&gt;</a>
+            </div>
+            <div class="box-time">
+                    <div class="box-time-text" data-time></div>
+                    <div class="clock_analog" data-analog>
+                            <div class="analog_hand hour" data-hour-hand></div>
+                            <div class="analog_hand minute" data-minute-hand></div>
+                            <div class="analog_hand second" data-second-hand></div>
+                        
+                            <div class="analog_number number1">1</div>
+                            <div class="analog_number number2">2</div>
+                            <div class="analog_number number3">3</div>
+                            <div class="analog_number number4">4</div>
+                            <div class="analog_number number5">5</div>
+                            <div class="analog_number number6">6</div>
+                            <div class="analog_number number7">7</div>
+                            <div class="analog_number number8">8</div>
+                            <div class="analog_number number9">9</div>
+                            <div class="analog_number number10">10</div>
+                            <div class="analog_number number11">11</div>
+                            <div class="analog_number number12">12</div>
+                        </div>
+                    <div class="clock_binary" data-binary>
+                            <div class="row">
+                                    <div class="hour1">
+                                        <div class="circle h1-8"></div>
+                                        <div class="circle h1-4"></div>
+                                        <div class="circle h1-2"></div>
+                                        <div class="circle h1-1"></div>
+                                        <div class="bin-text hour-h1"></div>
+                                    </div>
+                                    <div class="hour2">
+                                        <div class="circle h2-8"></div>
+                                        <div class="circle h2-4"></div>
+                                        <div class="circle h2-2"></div>
+                                        <div class="circle h2-1"></div>
+                                        <div class="bin-text hour-h2"></div>
+                                    </div>
+                                    <div class="minute1">
+                                        <div class="circle m1-8"></div>
+                                        <div class="circle m1-4"></div>
+                                        <div class="circle m1-2"></div>
+                                        <div class="circle m1-1"></div>
+                                        <div class="bin-text minute-m1"></div>
+                                    </div>
+                                    <div class="minute2">
+                                        <div class="circle m2-8"></div>
+                                        <div class="circle m2-4"></div>
+                                        <div class="circle m2-2"></div>
+                                        <div class="circle m2-1"></div>
+                                        <div class="bin-text minute-m2"></div>
+                                    </div>
+                                    <div class="second1">
+                                        <div class="circle s1-8"></div>
+                                        <div class="circle s1-4"></div>
+                                        <div class="circle s1-2"></div>
+                                        <div class="circle s1-1"></div>
+                                        <div class="bin-text second-s1"></div>
+                                    </div>
+                                    <div class="second2">
+                                        <div class="circle s2-8"></div>
+                                        <div class="circle s2-4"></div>
+                                        <div class="circle s2-2"></div>
+                                        <div class="circle s2-1"></div>
+                                        <div class="bin-text second-s2"></div>
+                                    </div>
+                        
+                                </div>
+
+                                <div class="box-time-text binary" data-time-binary></div>
+                    </div>
+            </div>
+            <div class="box-clockname">
+                    <a href="#prev" class="prev" data-btn-prev-kind>&lt;</a>
+                    <div class="clock-name" data-kind-name>Digital</div>
+                    <a href="#next" class="next" data-btn-next-kind>&gt;</a>
+            </div>
+        </div>
+
+        </div>
+        <script src="main.js"></script>
+        <script>
+            
+        const slider = new Slider();
+        slider.initializeSlider();
+        </script>
+</body>
+
+</html>
