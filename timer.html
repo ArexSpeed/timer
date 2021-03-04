@@ -14,46 +14,45 @@
 
   <body>
     <div class="container">
-      <div class="menu">
-        <div class="menu-toggle">X</div>
+      <header class="menu">
         <nav class="nav">
           <ul class="nav-list">
-            <li class="nav-item">
-              <a href="index.html" class="nav-link">
-                <i class="fas fa-clock nav-icon"></i>
-                <span class="nav-name">Clock</span>
-              </a>
+              <li class="nav-item">
+                  <a href="index.html" class="nav-link">
+                      <i class="fas fa-clock nav-icon"></i>
+                      <span class="nav-name">Clock</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                <a href="stoper.html" class="nav-link">
+                    <i class="fas fa-stopwatch nav-icon"></i>
+                    <span class="nav-name">Stoper</span>
+                </a>
             </li>
             <li class="nav-item">
-              <a href="timer.html" class="nav-link">
-                <i class="fas fa-clock nav-icon"></i>
-                <span class="nav-name">Timer</span>
-              </a>
+                <a href="timer.html" class="nav-link">
+                    <i class="fas fa-stopwatch-20 nav-icon"></i>
+                    <span class="nav-name">Workout</span>
+                </a>
             </li>
-            <li class="nav-item">
-              <a href="stoper.html" class="nav-link">
-                <i class="fas fa-clock nav-icon"></i>
-                <span class="nav-name">Stoper</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="fas fa-clock nav-icon"></i>
-                <span class="nav-name">Countdown</span>
-              </a>
-            </li>
+              <li class="nav-item">
+                  <a href="#" class="nav-link">
+                      <i class="fas fa-calendar-alt nav-icon"></i>
+                      <span class="nav-name">Calendar</span>
+                  </a>
+              </li>
           </ul>
-        </nav>
-      </div>
+      </nav>
+      </header>
 
-      <div class="main-clock">
-        <div class="box-city">
+      <main class="main-clock">
+        <section class="box-city">
           <a href="#prev" class="prev" data-btn-prev-kind>&lt;</a>
           <div class="clock-name" data-kind-name></div>
           <a href="#next" class="next" data-btn-next-kind>&gt;</a>
-        </div>
+        </section>
 
-        <div class="box-time">
+        <section class="box-time">
           <div class="timer-box" data-timer>
             <article class="timer__clock">
               <section class="timer">
@@ -187,14 +186,9 @@
               </button>
             </article>
           </div>
-        </div>
+        </section>
 
-        <div class="box-clockname">
-          <a href="#prev" class="prev" data-btn-prev-kind>&lt;</a>
-          <div class="clock-name" data-kind-name></div>
-          <a href="#next" class="next" data-btn-next-kind>&gt;</a>
-        </div>
-      </div>
+      </main>
     </div>
 
     <script src="timer.js"></script>

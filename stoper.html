@@ -12,10 +12,8 @@
 
 <body>
     <div class="container">
-        <div class="menu">
-            <div class="menu-toggle">X</div>
+        <header class="menu">
             <nav class="nav">
-
                 <ul class="nav-list">
                     <li class="nav-item">
                         <a href="index.html" class="nav-link">
@@ -24,60 +22,121 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="timer.html" class="nav-link">
-                            <i class="fas fa-clock nav-icon"></i>
-                            <span class="nav-name">Timer</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="stoper.html" class="nav-link">
-                            <i class="fas fa-clock nav-icon"></i>
+                            <i class="fas fa-stopwatch nav-icon"></i>
                             <span class="nav-name">Stoper</span>
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="timer.html" class="nav-link">
+                            <i class="fas fa-stopwatch-20 nav-icon"></i>
+                            <span class="nav-name">Workout</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="fas fa-clock nav-icon"></i>
-                            <span class="nav-name">Countdown</span>
+                            <i class="fas fa-calendar-alt nav-icon"></i>
+                            <span class="nav-name">Calendar</span>
                         </a>
                     </li>
                 </ul>
-
             </nav>
-        </div>
+        </header>
 
-    </div>
-
-    <div class="main-clock">
-        <div class="box-city">
+    <main class="main-clock">
+        <section class="box-city">
             <a href="#prev" class="prev" data-btn-prev-kind>&lt;</a>
             <div class="city-name" data-kind-name></div>
             <a href="#next" class="next" data-btn-next-kind>&gt;</a>
-        </div>
-        <div class="box-time">
-            <div class="timer-box" data-timer>
+        </section>
+        <section class="box-time">
+            <!-- Stoper -->
+            <section class="stoper-box" data-stoper>
 
-            <div class="box-time-text stoper_time" data-time>00:00:00.<span class="milisec">00</span></div>
-            <article class="plus_time" data-plus-time></article>
+            <div class="box-time-text stoper_time" data-stoper-time>00:00:00.<span class="milisec">00</span></div>
+            <article class="plus_time" data-stoper-plus-time></article>
 
             <article class="timer__buttons">
-                <button class="button" data-plus>
+                <button class="button" data-stoper-plus>
                     +
                 </button>
-                    <button class="button" data-reset>
+                    <button class="button" data-stoper-reset>
                         R
                     </button>
             </article>
 
             <article class="timer__stops">
-                <button class="button-st" data-start>
+                <button class="button-st" data-stoper-start>
                     START
                 </button>
-                <button class="button-st" data-stop>
+                <button class="button-st" data-stoper-stop>
                     STOP
                 </button>
             </article>
-        </div>
+        </section>
+
+        <!-- Timer -->
+        <section class="timer-box" data-timer>
+            <article class="timer__clock">
+              <section class="timer">
+                <input
+                  type="number"
+                  name="minutes"
+                  id="minutes"
+                  value="00"
+                  min="00"
+                  max="99"
+                  class="timer__input"
+                  data-timer-input
+                />
+                <label for="minutes" class="timer__label">Minutes</label>
+              </section>
+              <section class="timer">
+                <input
+                  type="number"
+                  name="seconds"
+                  id="seconds"
+                  value="00"
+                  min="00"
+                  max="99"
+                  class="timer__input"
+                  data-timer-input
+                />
+                <label for="seconds" class="timer__label">Seconds</label>
+              </section>
+            </article>
+
+            <article class="timer__buttons">
+              <button class="button" data-setmin value="5">
+                5
+              </button>
+              <button class="button" data-setmin value="10">
+                10
+              </button>
+              <button class="button" data-setmin value="15">
+                15
+              </button>
+              <button class="button" data-setmin value="20">
+                20
+              </button>
+
+              <button class="button" data-setmin value="0">
+                R
+              </button>
+            </article>
+
+            <article class="timer__stops">
+              <button class="button" data-addmin value="5">
+                +5
+              </button>
+              <button class="button-st" data-start>
+                START
+              </button>
+              <button class="button-st" data-stop>
+                STOP
+              </button>
+            </article>
+          </section>
 
         <!-- Workout -->
         <div class="clock_workout timer-box" data-workout>
@@ -125,10 +184,11 @@
 
         </div>
 
-    </div>
-    </div>
+    </section>
 
+    </main>
 
+</div>
 
     <script src="stoper.js"></script>
     <script>

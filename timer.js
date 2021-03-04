@@ -71,12 +71,7 @@ class Timer {
         this.setTimer(btn.value * 60);
       });
     });
-    /* old version for all btn inputs divides (new is foreach)
-        this.rerunBtn.addEventListener('click', ()=> {
-            this.stopTimer();
-            this.setTimer(this.rerunBtn.value*60)
-        } );
-        */
+
     this.addminBtn.addEventListener("click", () => {
       this.stopTimer();
       this.setTimer(this.setTime() + this.addminBtn.value * 60);
@@ -137,6 +132,8 @@ class Timer {
       this.workoutSection.style.display = "flex";
       const workout = new Workout();
       workout.initializeWorkout();
+      // const workout = new Workout();
+      // workout.initializeWorkout();
     }
   }
 
@@ -183,7 +180,6 @@ class Timer {
     this.countdown = clearInterval(this.countdown);
   }
 
-  setWorkout() {}
 }
 
 class Workout {
