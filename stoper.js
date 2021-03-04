@@ -1,4 +1,4 @@
-let kind = ["Stoper", "Timer", "Workout"];
+let kind = ["Stoper", "Timer"];
 
 class Stoper {
   constructor() {
@@ -27,7 +27,6 @@ class Stoper {
       kindName: "[data-kind-name]",
       stoperSection: "[data-stoper]",
       timerSection: "[data-timer]",
-      workoutSection: "[data-workout]"
     };
   }
 
@@ -46,9 +45,6 @@ class Stoper {
     // Sections
     this.stoperSection = document.querySelector(this.UiSelectors.stoperSection);
     this.timerSection = document.querySelector(this.UiSelectors.timerSection);
-    this.workoutSection = document.querySelector(
-      this.UiSelectors.workoutSection
-    );
 
     this.eventListeners();
   }
@@ -61,12 +57,18 @@ class Stoper {
 
     //Change kind timer
     this.btnPrevKind.addEventListener("click", () => {
-      this.changeKind(this.currentKind - 1);
-      console.log("prevKind");
+      if(this.currentKind === 0){
+        this.changeKind(kind.length-1)
+      }else{
+        this.changeKind(this.currentKind - 1);
+      }
     });
     this.btnNextKind.addEventListener("click", () => {
-      this.changeKind(this.currentKind + 1);
-      console.log("nextKind");
+      if(this.currentKind === kind.length-1){
+        this.changeKind(0)
+      }else{
+        this.changeKind(this.currentKind + 1);
+      }
     });
   }
 
@@ -80,12 +82,10 @@ class Stoper {
     if (this.currentKind == 0) {
       this.stoperSection.style.display = "flex";
       this.timerSection.style.display = "none";
-      this.workoutSection.style.display = "none";
     }
     if (this.currentKind == 1) {
       this.stoperSection.style.display = "none";
       this.timerSection.style.display = "flex";
-      this.workoutSection.style.display = "none";
       const timer = new Timer();
       timer.initializeTimer();
     }
@@ -207,7 +207,7 @@ class Timer {
     this.startBtn = document.querySelector(this.UiSelectors.start);
     this.timerInputs = document.querySelectorAll(this.UiSelectors.timerInput);
     this.setminBtns = document.querySelectorAll(this.UiSelectors.setmin);
-    this.addminBtn = document.querySelector(this.UiSelectors.addmin);
+    this.addminBtns = document.querySelectorAll(this.UiSelectors.addmin);
 
     this.eventListeners();
   }
@@ -215,21 +215,20 @@ class Timer {
   eventListeners() {
     [...this.setminBtns].forEach(btn => {
       btn.addEventListener("click", () => {
-        console.log("work");
-        console.log(btn.value);
         this.stopTimer();
         this.setTimer(btn.value * 60);
       });
     });
 
-    this.addminBtn.addEventListener("click", () => {
-      this.stopTimer();
-      this.setTimer(this.setTime() + this.addminBtn.value * 60);
+    [...this.addminBtns].forEach(btn => {
+      btn.addEventListener("click", () => {
+        this.stopTimer();
+        this.setTimer(this.setTime() + btn.value * 60);
+      });
     });
 
     this.stopBtn.addEventListener("click", () => {
       this.stopTimer();
-      console.log("stop");
     });
     this.startBtn.addEventListener("click", () => {
       //stopTimer in every click cause should clean doubleclick
@@ -300,163 +299,4 @@ class Timer {
     this.countdown = clearInterval(this.countdown);
   }
 
-}
-
-
-// Workout
-
-class Workout {
-  constructor() {
-    this.seriesInput = null;
-    this.workoutInput = null;
-    this.secondsInput = null;
-    this.restSeriesInput = null;
-    this.restWorkoutInput = null;
-    this.resetWorkoutBtn = null;
-
-    this.series = 0;
-    this.workout = 0;
-    this.seconds = 0;
-    this.restSeries = 0;
-    this.restWorkout = 0;
-
-    this.UiSelectors = {
-      series: "[data-series-input]",
-      workout: "[data-workout-input]",
-      seconds: "[data-seconds-input]",
-      restSeries: "[data-restSeries-input]",
-      restWorkout: "[data-restWorkout-input]",
-      stop: "[data-stop-workout]",
-      start: "[data-start-workout]",
-      reset: "[data-reset-workout]"
-    };
-  }
-  initializeWorkout() {
-    this.seriesInput = document.querySelector(this.UiSelectors.series);
-    this.workoutInput = document.querySelector(this.UiSelectors.workout);
-    this.secondsInput = document.querySelector(this.UiSelectors.seconds);
-    this.restSeriesInput = document.querySelector(this.UiSelectors.restSeries);
-    this.restWorkoutInput = document.querySelector(
-      this.UiSelectors.restWorkout
-    );
-
-    this.stopBtn = document.querySelector(this.UiSelectors.stop);
-    this.startBtn = document.querySelector(this.UiSelectors.start);
-    this.resetBtn = document.querySelector(this.UiSelectors.reset);
-
-    //Array for reset value on start
-    this.valueInput = [this.secondsInput, this.workoutInput, this.seriesInput];
-    this.eventListenersWO();
-  }
-
-  eventListenersWO() {
-    this.stopBtn.addEventListener("click", () => {
-      this.stopWorkout();
-    });
-    this.startBtn.addEventListener("click", () => {
-      this.startWorkout();
-    });
-    this.resetBtn.addEventListener("click", () => {
-      this.stopWorkout();
-      this.seconds = 0;
-      this.workout = 0;
-      this.series = 0;
-      this.displayWorkout();
-    });
-
-    this.secondsInput.addEventListener("click", () => {
-      this.secondsInput.value = "";
-    });
-    this.workoutInput.addEventListener("click", () => {
-      this.workoutInput.value = "";
-    });
-    this.seriesInput.addEventListener("click", () => {
-      this.seriesInput.value = "";
-    });
-    this.restWorkoutInput.addEventListener("click", () => {
-      this.restWorkoutInput.value = "";
-    });
-    this.restSeriesInput.addEventListener("click", () => {
-      this.restSeriesInput.value = "";
-    });
-  }
-
-  startWorkout() {
-    this.series = 1;
-    this.workout = 1;
-    this.seconds = 0;
-
-    this.restSeries = 0;
-    this.restWorkout = 0;
-
-    //Set values
-    this.setSeries = this.seriesInput.value;
-    this.setWorkout = this.workoutInput.value;
-    this.setSeconds = this.secondsInput.value;
-
-    this.setRestSeries = this.restSeriesInput.value;
-    this.setRestWorkout = this.restWorkoutInput.value;
-
-    this.setSeconds =
-      this.setSeconds == 0 ? (this.setSeconds = 59) : this.setSeconds;
-    console.log(this.setSeconds);
-
-    this.stoper = setInterval(() => {
-      this.seconds++;
-      if (this.seconds > this.setSeconds) {
-        this.seconds = this.setSeconds;
-        this.restWorkout++;
-        if (this.restWorkout > this.setRestWorkout) {
-          this.workout++;
-          this.seconds = 0;
-          this.restWorkout = 0;
-        }
-        if (this.workout > this.setWorkout) {
-          this.workout = this.setWorkout;
-          this.restSeries++;
-          this.seconds = this.setSeconds;
-          this.restWorkout = this.setRestWorkout;
-          if (this.restSeries > this.setRestSeries) {
-            this.series++;
-            this.workout = 1;
-            this.restSeries = 0;
-          }
-        }
-      }
-
-      if (this.series > this.setSeries) {
-        this.stopWorkout();
-      }
-      this.displayWorkout();
-    }, 1000);
-  }
-
-  displayWorkout() {
-    this.seriesInput.value =
-      this.series >= 10
-        ? this.series
-        : this.series <= 0
-        ? "00"
-        : `0${this.series}`;
-    this.workoutInput.value =
-      this.workout >= 10
-        ? this.workout
-        : this.workout <= 0
-        ? "00"
-        : `0${this.workout}`;
-    this.secondsInput.value =
-      this.seconds >= 10
-        ? this.seconds
-        : this.seconds <= 0
-        ? "00"
-        : `0${this.seconds}`;
-
-    this.restSeriesInput.value = this.restSeries;
-    this.restWorkoutInput.value = this.restWorkout;
-  }
-
-  stopWorkout() {
-    this.stoper = clearInterval(this.stoper);
-    console.log("stop");
-  }
 }

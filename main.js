@@ -75,7 +75,7 @@ let cities = [{
         time: 8
     },
     {
-        city: 'Sydney',
+        city: 'Adelaide',
         time: 9
     }
 ]
@@ -145,25 +145,38 @@ initializeSlider(){
 addListener(){
     //change city
     this.btnPrevCity.addEventListener('click', ()=> {
-        this.changeCity(this.currentCity-1);
-        console.log("prev");
-        console.log(this.currentCity);
+        if(this.currentCity!==0){
+            this.changeCity(this.currentCity-1);
+        }
+        else{
+            this.changeCity(cities.length-1)
+        }
         
     });
-    this.btnNextCity.addEventListener('click', ()=>{ this.changeCity(this.currentCity+1);
-    console.log("next");
-    console.log(this.currentCity)});
-
-    //Change kind clock
-    this.btnPrevKind.addEventListener('click', ()=> {
-        this.changeKind(this.currentKind-1);
-        console.log("prevKind");
-   
+    this.btnNextCity.addEventListener('click', ()=>{ 
+        if(this.currentCity!==cities.length-1){
+            this.changeCity(this.currentCity+1);
+        }
+        else{
+            this.changeCity(0)
+        }
     });
-    this.btnNextKind.addEventListener('click', ()=>{ 
-        this.changeKind(this.currentKind+1);
-    console.log("nextKind");
-   });
+
+    //Change kind timer
+    this.btnPrevKind.addEventListener("click", () => {
+        if(this.currentKind === 0){
+          this.changeKind(kind.length-1)
+        }else{
+          this.changeKind(this.currentKind - 1);
+        }
+      });
+      this.btnNextKind.addEventListener("click", () => {
+        if(this.currentKind === kind.length-1){
+          this.changeKind(0)
+        }else{
+          this.changeKind(this.currentKind + 1);
+        }
+      });
 
 }
 
@@ -201,7 +214,7 @@ setHour(){
     this.hour = this.hour<10 ? `0${this.hour}` : this.hour;
     this.minute = this.minute<10 ? `0${this.minute}` : this.minute;
     this.second = this.second<10 ? `0${this.second}` : this.second;
-
+    document.title = `${this.hour}:${this.minute}:${this.second}`
     //for digital
     if(this.currentKind===0){
         this.time.style.display="block";
@@ -227,6 +240,7 @@ currentTime(){
     this.second = today.getSeconds();
     
     this.time.textContent = `${this.hour} : ${this.minute} : ${this.second}`;
+    
 }
 
 changeKind(index){
