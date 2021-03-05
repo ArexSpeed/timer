@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clock World</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <header class="menu">
+      <nav class="nav">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-clock nav-icon"></i>
+                    <span class="nav-name">Clock</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="stoper.html" class="nav-link">
+                    <i class="fas fa-stopwatch nav-icon"></i>
+                    <span class="nav-name">Stoper</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="workout.html" class="nav-link">
+                    <i class="fas fa-stopwatch-20 nav-icon"></i>
+                    <span class="nav-name">Workout</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="calendar.html" class="nav-link">
+                    <i class="fas fa-calendar-alt nav-icon"></i>
+                    <span class="nav-name">Calendar</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    </header>
+
+    <main class="main-clock">
+      <section class="box-city">
+        <a href="#" class="prev" data-btn-prev-month>&lt;</a>
+        <div class="city-name" data-month-name></div>
+        <a href="#" class="next" data-btn-next-month>&gt;</a>
+    </section>
+
+    <section class="box-time">
+        <section class="calendar" data-calendar>
+            
+        </section>
+    </section>
+    </main>
+
+  </div>
+  <script src="calendar.js"></script>
+        <script>
+            
+        const calendar = new Calendar();
+        calendar.initCalendar();
+        </script>
+</body>
+</html>

@@ -36,7 +36,7 @@
                 </a>
             </li>
               <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="calendar.html" class="nav-link">
                       <i class="fas fa-calendar-alt nav-icon"></i>
                       <span class="nav-name">Calendar</span>
                   </a>
@@ -47,12 +47,12 @@
 
       <main class="main-clock">
         <section class="box-city">
-          <a href="#prev" class="prev" data-btn-prev-kind>&lt;</a>
+          <a href="#" class="prev" data-btn-prev-kind>&lt;</a>
           <div class="clock-name" data-kind-name></div>
-          <a href="#next" class="next" data-btn-next-kind>&gt;</a>
+          <a href="#" class="next" data-btn-next-kind>&gt;</a>
         </section>
 
-        <section class="box-time">
+        <section class="box-time workout-box">
 
                   <!-- Workout in -->
         <div class="stoper-box" data-workout>
@@ -60,25 +60,25 @@
           <article class="timer__clock">
               <section class="timer">
                   <input type="number" id="series" value="00" class="timer__input" data-series-input>
-                  <label class="workout__label">Series<br></label>
+                  <label class="timer__label">Series<br></label>
               </section>
               <section class="timer">
                   <input type="number" value="00" class="timer__input" data-workout-input>
-                  <label class="workout__label">Workouts</label>
+                  <label class="timer__label">Workouts</label>
               </section>
               <section class="timer">
                   <input type="number" value="00" class="timer__input" data-seconds-input>
-                  <label class="workout__label">Seconds</label>
+                  <label class="timer__label">Seconds</label>
               </section>
           </article>
           <article class="rest timer__clock">
               <section class="timer workout__rest">
                   <input type="number" value="00" class="rest__input" data-restSeries-input>
-                  <label class="workout__label">Rest between<br> series</label>
+                  <label class="timer__label">Rest between<br> series</label>
               </section>
 
               <section class="timer workout__rest">
-                  <label class="workout__label">Rest between<br> workout</label>
+                  <label class="timer__label">Rest between<br> workout</label>
                   <input type="number" value="00" class="rest__input" data-restWorkout-input>
 
               </section>
@@ -111,7 +111,7 @@
                   class="timer__input"
                   data-series-input-down
                 />
-                <label class="workout__label">Series<br /></label>
+                <label class="timer__label">Series<br /></label>
               </section>
               <section class="timer">
                 <input
@@ -120,7 +120,7 @@
                   class="timer__input"
                   data-workout-input-down
                 />
-                <label class="workout__label">Workouts per Series</label>
+                <label class="timer__label">Workouts per Series</label>
               </section>
               <section class="timer">
                 <input
@@ -129,7 +129,7 @@
                   class="timer__input"
                   data-seconds-input-down
                 />
-                <label class="workout__label">Seconds per Workouts</label>
+                <label class="timer__label">Seconds per Workouts</label>
               </section>
             </article>
             <article class="rest timer__clock">
@@ -140,14 +140,14 @@
                   class="rest__input"
                   data-restSeries-input-down
                 />
-                <label class="workout__label"
+                <label class="timer__label"
                   >Rest between<br />
                   series</label
                 >
               </section>
 
               <section class="timer workout__rest">
-                <label class="workout__label"
+                <label class="timer__label"
                   >Rest between<br />
                   workout</label
                 >

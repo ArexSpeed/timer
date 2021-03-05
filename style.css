@@ -39,9 +39,7 @@ body{
 .nav{
     margin: auto;
 }
-.nav-list{
 
-}
 .nav-item{
     display: flex;
     flex-direction: column;
@@ -89,6 +87,7 @@ body{
     text-decoration: none;
     color: var(--primary-color);
     font-size: 30px;
+    cursor: pointer;
 }
 .box-time{
     background: #000;
@@ -402,17 +401,6 @@ body{
     cursor: pointer;
     box-shadow: 0 0 10px rgba(0,0,0);
 }
-/* .button:disabled{
-    pointer-events: none;
-    opacity: 0.2;
-}
-.button:hover{
-    background-color: transparent;
-}
-.button:focus{
-    background-color: transparent;
-    box-shadow: inset 2px 2px 10px rgba(0,0,0);
-} */
 
 /* Timer Workout */
 .clock_workout{
@@ -434,6 +422,7 @@ body{
     box-shadow: inset 0px 0 2px var(--primary-color);
     z-index: 11;
 }
+
 .workout__rest{
     display: flex;
     flex-direction: row;
@@ -441,6 +430,29 @@ body{
     color:rgb(34, 218, 243);
 }
 
+/* Calendar */
+.calendar{
+    display: flex;
+    width: 100%;
+}
+.calendar-table{
+    font-size:30px;
+    color: var(--primary-color);
+    width: 100%;
+}
+.calendar-table th{
+    font-size: 16px;
+}
+.calendar-table td:nth-child(6){
+    color: #ddd;
+}
+.calendar-table td:nth-child(7){
+    color: #fff;
+}
+.current-day{
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+}
 
 @media screen and (max-width: 850px){
     body{
@@ -514,8 +526,16 @@ body{
 }
 
 @media screen and (max-width: 500px){
+
+    .nav-name{
+        display: none;
+    }
     .box-time{
         overflow: scroll;
+    }
+    .box-time.workout-box{
+        overflow: scroll;
+        padding-top: 300px;
     }
 
     .box-time-text{
@@ -538,5 +558,8 @@ body{
     }
     .timer__clock{
         flex-direction: column;
+    }
+    .calendar-table{
+        font-size:16px;
     }
 }
